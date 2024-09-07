@@ -1,0 +1,98 @@
+target:
+- 日发电系数
+continuous_cols:
+- 100 metre U wind component(m/s)
+- 100 metre V wind component(m/s)
+- 2 metre dewpoint temperature(K)
+- 2 metre temperature(K)
+- Surface runoff(m)
+- Runoff(m)
+- Surface net short-wave (solar) radiation(J/m²)
+- 乘以面积(J)
+- Surface short-wave (solar) radiation downward clear-sky(J/m²)
+- 乘以面积(J).1
+- Surface short-wave (solar) radiation downwards(J/m²)
+- 乘以面积(J).2
+categorical_cols: []
+date_columns: []
+encode_date_columns: true
+validation_split: 0.2
+continuous_feature_transform: null
+normalize_continuous_features: true
+quantile_noise: 0
+num_workers: 0
+pin_memory: true
+handle_unknown_categories: true
+handle_missing_values: true
+task: classification
+head: LinearHead
+head_config:
+  layers: ''
+embedding_dims: []
+embedding_dropout: 0.0
+batch_norm_continuous_input: true
+learning_rate: 0.001
+loss: CrossEntropyLoss
+metrics:
+- accuracy
+metrics_prob_input:
+- false
+metrics_params:
+- task: multiclass
+  num_classes: 50
+  top_k: 1
+target_range: null
+virtual_batch_size: null
+seed: 42
+_module_src: models.gandalf
+_model_name: GANDALFModel
+_backbone_name: GANDALFBackbone
+_config_name: GANDALFConfig
+gflu_stages: 6
+gflu_dropout: 0.0
+gflu_feature_init_sparsity: 0.3
+learnable_sparsity: true
+batch_size: 1024
+data_aware_init_batch_size: 2000
+fast_dev_run: false
+max_epochs: 100
+min_epochs: 1
+max_time: null
+accelerator: auto
+devices: -1
+devices_list: null
+accumulate_grad_batches: 1
+auto_lr_find: false
+auto_select_gpus: true
+check_val_every_n_epoch: 1
+gradient_clip_val: 0.0
+overfit_batches: 0.0
+deterministic: false
+profiler: null
+early_stopping: valid_loss
+early_stopping_min_delta: 0.001
+early_stopping_mode: min
+early_stopping_patience: 3
+early_stopping_kwargs: {}
+checkpoints: valid_loss
+checkpoints_path: saved_models
+checkpoints_every_n_epochs: 1
+checkpoints_name: null
+checkpoints_mode: min
+checkpoints_save_top_k: 1
+checkpoints_kwargs: {}
+load_best: true
+track_grad_norm: -1
+progress_bar: rich
+precision: 32
+trainer_kwargs: {}
+optimizer: Adam
+optimizer_params: {}
+lr_scheduler: null
+lr_scheduler_params: {}
+lr_scheduler_monitor_metric: valid_loss
+categorical_dim: 0
+continuous_dim: 12
+output_dim: 50
+categorical_cardinality: []
+embedded_cat_dim: 0

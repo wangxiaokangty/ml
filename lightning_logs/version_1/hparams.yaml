@@ -1,0 +1,105 @@
+target:
+- Cover_Type
+continuous_cols:
+- Elevation
+- Aspect
+- Slope
+- Horizontal_Distance_To_Hydrology
+- Vertical_Distance_To_Hydrology
+- Horizontal_Distance_To_Roadways
+- Hillshade_9am
+- Hillshade_Noon
+- Hillshade_3pm
+- Horizontal_Distance_To_Fire_Points
+categorical_cols:
+- Wilderness_Area
+- Soil_Type
+date_columns: []
+encode_date_columns: true
+validation_split: 0.2
+continuous_feature_transform: null
+normalize_continuous_features: true
+quantile_noise: 0
+num_workers: 0
+pin_memory: true
+handle_unknown_categories: true
+handle_missing_values: true
+task: classification
+head: LinearHead
+head_config:
+  layers: ''
+embedding_dims:
+- - 5
+  - 3
+- - 41
+  - 21
+embedding_dropout: 0.0
+batch_norm_continuous_input: true
+learning_rate: 0.001
+loss: CrossEntropyLoss
+metrics:
+- accuracy
+metrics_prob_input:
+- false
+metrics_params:
+- task: multiclass
+  num_classes: 7
+  top_k: 1
+target_range: null
+virtual_batch_size: null
+seed: 42
+_module_src: models.gandalf
+_model_name: GANDALFModel
+_backbone_name: GANDALFBackbone
+_config_name: GANDALFConfig
+gflu_stages: 6
+gflu_dropout: 0.0
+gflu_feature_init_sparsity: 0.3
+learnable_sparsity: true
+batch_size: 1024
+data_aware_init_batch_size: 2000
+fast_dev_run: false
+max_epochs: 100
+min_epochs: 1
+max_time: null
+accelerator: auto
+devices: -1
+devices_list: null
+accumulate_grad_batches: 1
+auto_lr_find: false
+auto_select_gpus: true
+check_val_every_n_epoch: 1
+gradient_clip_val: 0.0
+overfit_batches: 0.0
+deterministic: false
+profiler: null
+early_stopping: valid_loss
+early_stopping_min_delta: 0.001
+early_stopping_mode: min
+early_stopping_patience: 3
+early_stopping_kwargs: {}
+checkpoints: valid_loss
+checkpoints_path: saved_models
+checkpoints_every_n_epochs: 1
+checkpoints_name: null
+checkpoints_mode: min
+checkpoints_save_top_k: 1
+checkpoints_kwargs: {}
+load_best: true
+track_grad_norm: -1
+progress_bar: rich
+precision: 32
+trainer_kwargs: {}
+optimizer: Adam
+optimizer_params: {}
+lr_scheduler: null
+lr_scheduler_params: {}
+lr_scheduler_monitor_metric: valid_loss
+categorical_dim: 2
+enable_checkpointing: true
+continuous_dim: 10
+output_dim: 7
+categorical_cardinality:
+- 5
+- 41
+embedded_cat_dim: 24
