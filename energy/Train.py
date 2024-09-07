@@ -2,8 +2,9 @@ import torch.optim
 from torch.utils.data import Dataset, DataLoader, random_split
 from Dataset import MyDataset
 from torch.utils.data import DataLoader
-from Model import MLP
+from MLPModel import MLP
 from torch.nn import MSELoss
+from AttentionModel import AttentionModel
 
 if __name__ == "__main__":
     dataset = MyDataset("上海")
@@ -15,6 +16,7 @@ if __name__ == "__main__":
     train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
 
     model = MLP(12, 5, 1)
+    model = AttentionModel()
 
 
     criterion = MSELoss()
